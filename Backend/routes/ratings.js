@@ -38,9 +38,48 @@ router.post("/", function (req, res, next) {
 });
 
 // Update
+router.put("/overall", function (req, res, next) {
+  console.log(req.body);
+  ratings.updateOverall(req.body, function (err, count) {
+    if (err) {
+      console.log(err);
+      res.json(err);
+    } else {
+      console.log('Overall Updated');
+      res.json(req.body);
+    }
+  });
+});
+
+router.put("/song", function (req, res, next) {
+  console.log(req.body);
+  ratings.updateSong(req.body, function (err, count) {
+    if (err) {
+      console.log(err);
+      res.json(err);
+    } else {
+      console.log('Song Updated');
+      res.json(req.body);
+    }
+  });
+});
+
+router.put("/performance", function (req, res, next) {
+  console.log(req.body);
+  ratings.updatePerformance(req.body, function (err, count) {
+    if (err) {
+      console.log(err);
+      res.json(err);
+    } else {
+      console.log('Performance Updated');
+      res.json(req.body);
+    }
+  });
+});
+
 router.put("/comment", function (req, res, next) {
   console.log(req.body);
-  ratings.addRating(req.body, function (err, count) {
+  ratings.updateComment(req.body, function (err, count) {
     if (err) {
       console.log(err);
       res.json(err);
