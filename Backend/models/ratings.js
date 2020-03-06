@@ -5,7 +5,7 @@ const ratings = {
         db.query('SELECT * FROM ratings;', callback);
     },
     getRatingsById(id, callback) {
-        db.query(`SELECT * FROM ratings WHERE idRatings = ?;`, [id], callback);
+        db.query(`SELECT * FROM ratings WHERE user_id = ?;`, [id], callback);
     },
     addRating(info, callback) {
         return db.query(

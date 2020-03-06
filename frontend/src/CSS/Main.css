@@ -1,0 +1,11 @@
+.Flag_Image{
+    width:60px;height:50px;
+}
+
+.trash{
+    display: none;
+}
+
+.Country_Row{
+    cursor:pointer;
+}
