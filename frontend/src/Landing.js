@@ -26,6 +26,7 @@ class Landing extends Component {
     get() {
         const PATH = `http://localhost:3000/users`;
         axios.get(PATH).then(res => { this.setState({ users: res.data }); });
+        console.log(this.state.users)
     }
 
     onChange(e) {
