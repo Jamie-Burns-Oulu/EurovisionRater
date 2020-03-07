@@ -56,8 +56,7 @@ class Main extends Component {
         return (
             <div>
                 {this.renderRedirect()}
-                Hello {this.state.name}
-
+                USER => {this.state.name}
                 <table>
                     <tbody>
                         <tr>
@@ -66,7 +65,7 @@ class Main extends Component {
                         </tr>
                         {this.state.countries.map(country => (
                             <tr key={country.idCountries} id={country.idCountries} onClick={this.handleClick} className="Country_Row">
-                                <td id={country.idCountries}>{country.name}
+                                <td id={country.idCountries} >{country.name}
                                     <img id={country.idCountries} src={country.flag} alt={"Flag of " + country.name} className="Flag_Image" />
                                 </td>
                                 {this.state.ratings.map(rate => (

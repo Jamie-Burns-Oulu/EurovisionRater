@@ -8,35 +8,35 @@ class Rating extends Component {
         super(props);
         this.get = this.get.bind(this);
         this.state = {
-            name: "",
             idUser: "",
             countryForRating: this.props.location.countryForRating,
             redirect: false,
             Overall: 0,
             Song: 0,
             Performance: 0,
-            Comment: ""
+            Comment: "",
+            country: []
         };
         this.onChange = this.onChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
-        this.setState({ name: localStorage.getItem('name') });
         this.setState({ idUser: localStorage.getItem('idUsers') });
         this.get();
     }
 
     get() {
-        const PATH = `http://localhost:3000/ratings/`;
-        axios.get(PATH + localStorage.getItem('idUsers')).then(res => {
-            let countryID = Number(this.props.location.countryForRating)
+        let countryID = Number(this.props.location.countryForRating)
+        const PATH = `http://localhost:3000/`;
+        axios.get(PATH + "countries/" + countryID).then(res => { this.setState({ country: res.data }); });
+        axios.get(PATH + "ratings/" + localStorage.getItem('idUsers')).then(res => {
             let existingRating = res.data.find(r => r.country_id === countryID);
             if (!existingRating) {
                 let [overall, song, performance, comment] = [0, 0, 0, ""]
                 let country_id = countryID;
                 let user_id = localStorage.getItem('idUsers');
-                axios.post(PATH, {
+                axios.post(PATH + "ratings/", {
                     overall,
                     song,
                     performance,
@@ -44,15 +44,11 @@ class Rating extends Component {
                     user_id,
                     country_id
                 })
-                    .then(res => {
-                        console.log(res);
-                    });
             } else {
                 this.setState({ Overall: existingRating.overall });
                 this.setState({ Song: existingRating.song });
                 this.setState({ Performance: existingRating.performance });
                 this.setState({ Comment: existingRating.comment });
-                console.log(this.state);
             }
         });
     }
@@ -61,7 +57,7 @@ class Rating extends Component {
         const state = this.state;
         state[e.target.name] = e.target.value;
         this.setState(state);
-        this.updateRating(e.target.name)
+        this.updateRating(e.target.name);
     };
 
     updateRating(toUpdate) {
@@ -69,17 +65,18 @@ class Rating extends Component {
         let country = this.state.countryForRating;
         let user = this.state.idUser;
         let overall = this.state.Overall;
-        axios.put(PATH + toUpdate, {
-            overall,
-            user,
-            country
-        })
-            .then(res => {
-                console.log(res);
-            });
-
-        console.log(toUpdate);
-
+        let song = this.state.Song;
+        let performance = this.state.Performance;
+        let comment = this.state.Comment;
+        if (toUpdate === "Overall") {
+            axios.put(PATH + toUpdate, { overall, user, country })
+        } else if (toUpdate === "Song") {
+            axios.put(PATH + toUpdate, { song, user, country })
+        } else if (toUpdate === "Performance") {
+            axios.put(PATH + toUpdate, { performance, user, country })
+        } else if (toUpdate === "Comment") {
+            axios.put(PATH + toUpdate, { comment, user, country })
+        }
     }
 
     handleClick(e) {
@@ -99,7 +96,12 @@ class Rating extends Component {
         return (
             <div>
                 {this.renderRedirect()}
-                {this.state.name}
+                {this.state.country.map(country => (
+                    <div>
+                        <div>{country.name}</div>
+                        <img src={country.flag} alt={"Flag of " + country.name} className="Flag_Image" />
+                    </div>
+                ))}
                 <br />
                 Overall (1-10):
                 <input type="number" name="Overall"

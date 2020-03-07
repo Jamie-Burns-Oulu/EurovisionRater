@@ -13,10 +13,13 @@ class Landing extends Component {
         };
         this.onChange = this.onChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-
+        this.createUser = this.createUser.bind(this);
     }
 
     componentDidMount() {
+        if (localStorage.getItem('idUsers') && localStorage.getItem('name')) {
+            this.setState({ redirect: true })
+        };
         this.get();
     }
 
@@ -29,14 +32,27 @@ class Landing extends Component {
         this.setState({ user: e.target.value });
     }
 
-    handleClick(e) {
-        e.preventDefault();
-        let obj = this.state.users.find(o => o.name === this.state.user);
-        let id = obj.idUsers;
-        let name = obj.name;
-        localStorage.setItem('idUsers', id);
-        localStorage.setItem('name', name);
-        this.setState({ redirect: true })
+    handleClick() {
+        let foundUser = this.state.users.find(o => o.name === this.state.user);
+        if (foundUser) {
+            let id = foundUser.idUsers;
+            let name = foundUser.name;
+            localStorage.setItem('idUsers', id);
+            localStorage.setItem('name', name);
+            this.setState({ redirect: true })
+        } else {
+            this.createUser(this.state.user);
+        }
+
+    }
+
+    createUser(Name) {
+        const PATH = `http://localhost:3000/users/`;
+        axios.post(PATH, { Name }).then(a=> {         
+            this.get();
+            this.handleClick();
+        })
+
     }
 
     renderRedirect = () => {
@@ -50,7 +66,7 @@ class Landing extends Component {
         return (
             <div>
                 {this.renderRedirect()}
-                <input placeholder="First name" onChange={e => { this.onChange(e) }}>
+                <input placeholder="Name" onChange={e => { this.onChange(e) }}>
                 </input>
                 <button onClick={this.handleClick}>Enter</button>
             </div >
