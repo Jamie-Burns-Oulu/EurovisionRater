@@ -1,1 +1,1 @@
-# EuroVisionRater
+# EurovisionRater
