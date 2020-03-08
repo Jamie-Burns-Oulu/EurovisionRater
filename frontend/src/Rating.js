@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect, withRouter } from 'react-router-dom'
-import './CSS/Main.css';
+import './CSS/Rating.css';
 
 class Rating extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Rating extends Component {
     }
 
     get() {
-        let countryID = Number(this.props.location.countryForRating)
+        let countryID = Number(this.props.location.countryForRating);
         const PATH = `http://localhost:3000/`;
         axios.get(PATH + "countries/" + countryID).then(res => { this.setState({ country: res.data }); });
         axios.get(PATH + "ratings/" + localStorage.getItem('idUsers')).then(res => {
@@ -97,29 +97,46 @@ class Rating extends Component {
             <div>
                 {this.renderRedirect()}
                 {this.state.country.map(country => (
-                    <div>
-                        <div>{country.name}</div>
-                        <img src={country.flag} alt={"Flag of " + country.name} className="Flag_Image" />
+                    <div className="country-name">
+                        {country.name}
+                        <img src={country.flag} alt={"Flag of " + country.name} className="flag_image" />
                     </div>
                 ))}
-                <br />
-                Overall (1-10):
-                <input type="number" name="Overall"
-                    onChange={this.onChange} placeholder={this.state.Overall} />
-                <br />
-                Song (1-5):
-                <input type="number" name="Song"
-                    onChange={this.onChange} placeholder={this.state.Song} />
-                <br />
-                Show (1-5):
-                <input type="number" name="Performance"
-                    onChange={this.onChange} placeholder={this.state.Performance} />
-                <br />
-                Comment:
-                <input type="text" name="Comment"
-                    onChange={this.onChange} placeholder={this.state.Comment} />
-                <br />    <br />    <br />    <br />
-                <button onClick={this.handleClick}>Back</button>
+
+                <div className="main-ratings">
+
+                    <div className="overall-rating">
+                        Overall
+                        <div>
+                            <input type="number" name="Overall"
+                                onChange={this.onChange} value={this.state.Overall} />
+                        </div>
+                    </div>
+                    <div className="song-rating">
+                        Song
+                        <div>
+                            <input type="number" name="Song"
+                                onChange={this.onChange} value={this.state.Song} />
+                        </div>
+                    </div>
+                    <div className="show-rating">
+                        Show
+                        <div>
+                            <input type="number" name="Performance"
+                                onChange={this.onChange} value={this.state.Performance} />
+                        </div>
+                    </div>
+                    <div className="comment-rating">
+                        Comment
+                        <div>
+                            <input type="text" name="Comment"
+                                onChange={this.onChange} value={this.state.Comment} />
+                        </div>
+                    </div>
+
+                    <button onClick={this.handleClick}>Back</button>
+
+                </div>
             </div >
         );
     }

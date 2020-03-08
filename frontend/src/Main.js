@@ -56,20 +56,27 @@ class Main extends Component {
         return (
             <div>
                 {this.renderRedirect()}
-                USER => {this.state.name}
-                <table>
+                <div className="app-name">
+                    Eurovision Rater <span className="user-name">{this.state.name}</span> 
+                </div>
+  
+                <table className="countries-table">
                     <tbody>
                         <tr>
-                            <th>Country</th>
-                            <th>Overall</th>
+                            <th colSpan="2">Country</th>
+                            <th className="overall-th">Overall</th>
                         </tr>
                         {this.state.countries.map(country => (
                             <tr key={country.idCountries} id={country.idCountries} onClick={this.handleClick} className="Country_Row">
-                                <td id={country.idCountries} >{country.name}
+                                <td id={country.idCountries} >
                                     <img id={country.idCountries} src={country.flag} alt={"Flag of " + country.name} className="Flag_Image" />
+
+                                </td>
+                                <td id={country.idCountries}>
+                                    {country.name}
                                 </td>
                                 {this.state.ratings.map(rate => (
-                                    country.idCountries === rate.country_id ? <td id={country.idCountries}> {rate.overall} </td> : <td className="trash" />
+                                    country.idCountries === rate.country_id ? <td id={country.idCountries} className="overall-ratings"> {rate.overall} </td> : <td className="trash" />
                                 ))}
                             </tr>
                         ))}

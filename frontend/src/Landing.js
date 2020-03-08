@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from 'react-router-dom'
+import './CSS/Landing.css';
 
 class Landing extends Component {
     constructor() {
@@ -42,14 +43,19 @@ class Landing extends Component {
             localStorage.setItem('name', name);
             this.setState({ redirect: true })
         } else {
-            this.createUser(this.state.user);
+            if (this.state.user.length < 1) {
+                alert("Enter Name")
+            } else {
+                this.createUser(this.state.user);
+            }
+
         }
 
     }
 
     createUser(Name) {
         const PATH = `http://localhost:3000/users/`;
-        axios.post(PATH, { Name }).then(a=> {         
+        axios.post(PATH, { Name }).then(a => {
             this.get();
             this.handleClick();
         })
@@ -65,12 +71,19 @@ class Landing extends Component {
 
     render() {
         return (
-            <div>
-                {this.renderRedirect()}
-                <input placeholder="Name" onChange={e => { this.onChange(e) }}>
-                </input>
-                <button onClick={this.handleClick}>Enter</button>
-            </div >
+            <div >
+                <div className="welcome">
+                    Welcome to Eurovision Rater
+                </div>
+                <div className="centered">
+                    {this.renderRedirect()}
+                    <input className="name-input" placeholder="Name" onChange={e => { this.onChange(e) }}>
+                    </input>
+                </div >
+                <div className="centered-btn">
+                    <button className="start-btn" onClick={this.handleClick}>Start</button>
+                </div>
+            </div>
         );
     }
 

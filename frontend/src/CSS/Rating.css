@@ -1,0 +1,42 @@
+.country-name {
+  font-size: 2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  padding: 1em;
+  position: fixed;
+  top: 5%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background-color: #004494;
+  width: 100%;
+  color: white;
+}
+
+.flag_image {
+  width: 65px;
+  height: 40px;
+  border: 1px solid black;
+  margin-left: 5em;
+}
+
+.main-ratings {
+  margin-top: 8em;
+  padding: 1em;
+}
+
+.overall-rating {
+  text-align: center;
+}
+
+.song-rating {
+  text-align: center;
+}
+
+.show-rating {
+  text-align: center;
+}
+
+.comment-rating {
+  text-align: center;
+}
