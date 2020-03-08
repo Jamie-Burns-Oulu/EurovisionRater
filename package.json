@@ -1,7 +1,6 @@
 {
     "name": "frontend",
     "version": "0.1.0",
-    "proxy": "http://localhost:3000",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
@@ -24,9 +23,8 @@
         "pg-promise": "^10.4.4"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "heroku-postbuild": "cd frontend && npm install && npm run build && cd .. && cd backend && && npm install && npm run",
+        "start": "cd frontend && npm install && npm run build",
+        "heroku-postbuild": "cd frontend && cd build && npm install && npm run build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
@@ -44,5 +42,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "engines": {
+        "node": "12.14.1"
     }
 }
+
