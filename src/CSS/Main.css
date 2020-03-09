@@ -47,7 +47,6 @@ tr {
 }
 
 td {
-  width: 20em;
   /* top | right | bottom | left */
   padding: 1em 0 1em 1em;
   font-size: 1em;

@@ -15,7 +15,6 @@ class Main extends Component {
             ratings: [],
             countryForRating: ""
         };
-        this.onChange = this.onChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -25,15 +24,13 @@ class Main extends Component {
         this.get();
     }
 
+
     get() {
         const PATH = `https://evr.herokuapp.com/`;
         axios.get(PATH + "countries").then(res => { this.setState({ countries: res.data }); });
         axios.get(PATH + "ratings/" + localStorage.getItem('idUsers')).then(res => { this.setState({ ratings: res.data }); });
     }
 
-    onChange(e) {
-
-    }
 
     handleClick(e) {
         e.preventDefault();
@@ -57,29 +54,30 @@ class Main extends Component {
             <div>
                 {this.renderRedirect()}
                 <div className="app-name">
-                    Eurovision Rater <span className="user-name">{this.state.name}</span> 
+                    Eurovision Rater <span className="user-name">{this.state.name}</span>
                 </div>
-  
+
                 <table className="countries-table">
                     <tbody>
                         <tr>
                             <th colSpan="2">Country</th>
                             <th className="overall-th">Overall</th>
                         </tr>
-                        {this.state.countries.map(country => (
+
+                        {this.state.countries.map((country) =>
                             <tr key={country.idCountries} id={country.idCountries} onClick={this.handleClick} className="Country_Row">
                                 <td id={country.idCountries} >
                                     <img id={country.idCountries} src={country.flag} alt={"Flag of " + country.name} className="Flag_Image" />
 
                                 </td>
                                 <td id={country.idCountries}>
-                                    {country.name}
+                                    {country.idCountries}. {country.name}
                                 </td>
                                 {this.state.ratings.map(rate => (
                                     country.idCountries === rate.country_id ? <td id={country.idCountries} className="overall-ratings"> {rate.overall} </td> : <td className="trash" />
                                 ))}
                             </tr>
-                        ))}
+                        )}
                     </tbody>
                 </table>
             </div >

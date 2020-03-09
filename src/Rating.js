@@ -57,7 +57,7 @@ class Rating extends Component {
         const state = this.state;
         state[e.target.name] = e.target.value;
         this.setState(state);
-        this.updateRating(e.target.name);
+        this.updateRating(e.target.name);       
     };
 
     updateRating(toUpdate) {
@@ -98,7 +98,7 @@ class Rating extends Component {
                 {this.renderRedirect()}
                 {this.state.country.map(country => (
                     <div className="country-name">
-                        {country.name}
+                        {country.idCountries}. {country.name}
                         <img src={country.flag} alt={"Flag of " + country.name} className="flag_image" />
                     </div>
                 ))}
@@ -106,37 +106,62 @@ class Rating extends Component {
                 <div className="main-ratings">
 
                     <div className="overall-rating">
-                        Overall
+                        Overall: {this.state.Overall}
                         <div>
-                            <input type="number" name="Overall"
-                                onChange={this.onChange} value={this.state.Overall} />
+
+                            <input type="range" name="Overall"
+                                onChange={this.onChange} value={this.state.Overall} min="1" max="10" step="1" />
                         </div>
                     </div>
                     <div className="song-rating">
-                        Song
-                        <div>
-                            <input type="number" name="Song"
-                                onChange={this.onChange} value={this.state.Song} />
-                        </div>
+                        Song: {this.state.Song} Stars
+                        <form className="show-rating" onChange={this.onChange}>
+                            <div className="stars">
+                                <input type="radio" name="Song" className="star-1" value="1" id="star-1" />
+                                <label className="star-1" htmlFor="star-1">1</label>
+                                <input type="radio" name="Song" className="star-2" value="2" id="star-2" />
+                                <label className="star-2" htmlFor="star-2">2</label>
+                                <input type="radio" name="Song" className="star-3" value="3" id="star-3" />
+                                <label className="star-3" htmlFor="star-3">3</label>
+                                <input type="radio" name="Song" className="star-4" value="4" id="star-4" />
+                                <label className="star-4" htmlFor="star-4">4</label>
+                                <input type="radio" name="Song" className="star-5" value="5" id="star-5" />
+                                <label className="star-5" htmlFor="star-5">5</label>
+                                <span></span>
+                            </div>
+                        </form>
                     </div>
                     <div className="show-rating">
-                        Show
-                        <div>
-                            <input type="number" name="Performance"
-                                onChange={this.onChange} value={this.state.Performance} />
-                        </div>
+                        Show: {this.state.Performance} Stars
+                        <form className="show-rating" onChange={this.onChange}>
+                            <div className="stars2">
+                                <input type="radio" name="Performance" className="star-12" value="1" id="star-12" />
+                                <label className="star-12" htmlFor="star-12">1</label>
+                                <input type="radio" name="Performance" className="star-22" value="2" id="star-22" />
+                                <label className="star-22" htmlFor="star-22">2</label>
+                                <input type="radio" name="Performance" className="star-32" value="3" id="star-32" />
+                                <label className="star-32" htmlFor="star-32">3</label>
+                                <input type="radio" name="Performance" className="star-42" value="4" id="star-42" />
+                                <label className="star-42" htmlFor="star-42">4</label>
+                                <input type="radio" name="Performance" className="star-52" value="5" id="star-52" />
+                                <label className="star-52" htmlFor="star-52">5</label>
+                                <span></span>
+                            </div>
+                        </form>
                     </div>
                     <div className="comment-rating">
                         Comment
                         <div>
-                            <input type="text" name="Comment"
+                            <input type="textarea" name="Comment"
                                 onChange={this.onChange} value={this.state.Comment} />
                         </div>
                     </div>
 
-                    <button onClick={this.handleClick}>Back</button>
+                    <button className="start-btn" id="back-btn" onClick={this.handleClick}>Back</button>
 
                 </div>
+
+
             </div >
         );
     }
