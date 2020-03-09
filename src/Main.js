@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './CSS/Main.css';
 
 class Main extends Component {
@@ -12,8 +12,7 @@ class Main extends Component {
             redirect: false,
             idUser: "",
             name: "",
-            ratings: [],
-            countryForRating: ""
+            ratings: []
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -33,26 +32,15 @@ class Main extends Component {
 
 
     handleClick(e) {
-        e.preventDefault();
-        this.setState({ countryForRating: e.target.id })
-        this.setState({ redirect: true });
+        e.preventDefault();     
+        console.log(e.target.id);
+        window.location = "/Rating/" + e.target.id;
 
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to={{
-                pathname: '/Rating',
-                countryForRating: this.state.countryForRating
-            }} />
-        }
-    }
-
+    }  
 
     render() {
         return (
-            <div>
-                {this.renderRedirect()}
+            <div>          
                 <div className="app-name">
                     Eurovision Rater <span className="user-name">{this.state.name}</span>
                 </div>

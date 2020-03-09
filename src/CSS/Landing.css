@@ -1,5 +1,5 @@
 .welcome {
-  position: fixed;
+  position: absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -11,13 +11,13 @@
 }
 
 .centered {
-  position: fixed;
+  position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .centered-btn {
-  position: fixed;
+  position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);

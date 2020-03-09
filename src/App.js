@@ -15,7 +15,7 @@ function App() {
           <Route path="/Main">
             <Main />
           </Route>
-          <Route path="/Rating">
+          <Route path="/Rating/:id">
             <Rating />
           </Route>
         </Switch>

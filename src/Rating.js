@@ -9,7 +9,7 @@ class Rating extends Component {
         this.get = this.get.bind(this);
         this.state = {
             idUser: "",
-            countryForRating: this.props.location.countryForRating,
+            countryForRating: this.props.match.params.id,
             redirect: false,
             Overall: 0,
             Song: 0,
@@ -23,11 +23,11 @@ class Rating extends Component {
 
     componentDidMount() {
         this.setState({ idUser: localStorage.getItem('idUsers') });
-        this.get();
+        this.get();    
     }
 
     get() {
-        let countryID = Number(this.props.location.countryForRating);
+        let countryID = Number(this.props.match.params.id);
         const PATH = `https://evr.herokuapp.com/`;
         axios.get(PATH + "countries/" + countryID).then(res => { this.setState({ country: res.data }); });
         axios.get(PATH + "ratings/" + localStorage.getItem('idUsers')).then(res => {
@@ -57,7 +57,7 @@ class Rating extends Component {
         const state = this.state;
         state[e.target.name] = e.target.value;
         this.setState(state);
-        this.updateRating(e.target.name);       
+        this.updateRating(e.target.name);
     };
 
     updateRating(toUpdate) {
@@ -98,8 +98,8 @@ class Rating extends Component {
                 {this.renderRedirect()}
                 {this.state.country.map(country => (
                     <div className="country-name">
-                        {country.idCountries}. {country.name}
                         <img src={country.flag} alt={"Flag of " + country.name} className="flag_image" />
+                        {country.idCountries}. {country.name}
                     </div>
                 ))}
 
