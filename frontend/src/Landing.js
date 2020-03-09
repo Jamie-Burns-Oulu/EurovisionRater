@@ -25,7 +25,7 @@ class Landing extends Component {
     }
 
     get() {
-        const PATH = `http://localhost:3000/users`;
+        const PATH = `https://evr.herokuapp.com/users`;
         axios.get(PATH).then(res => { this.setState({ users: res.data }); });
         console.log(this.state.users)
     }
@@ -54,7 +54,7 @@ class Landing extends Component {
     }
 
     createUser(Name) {
-        const PATH = `http://localhost:3000/users/`;
+        const PATH = `https://evr.herokuapp.com/users/`;
         axios.post(PATH, { Name }).then(a => {
             this.get();
             this.handleClick();

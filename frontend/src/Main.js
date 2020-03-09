@@ -26,7 +26,7 @@ class Main extends Component {
     }
 
     get() {
-        const PATH = `http://localhost:3000/`;
+        const PATH = `https://evr.herokuapp.com/`;
         axios.get(PATH + "countries").then(res => { this.setState({ countries: res.data }); });
         axios.get(PATH + "ratings/" + localStorage.getItem('idUsers')).then(res => { this.setState({ ratings: res.data }); });
     }

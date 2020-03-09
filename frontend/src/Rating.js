@@ -28,7 +28,7 @@ class Rating extends Component {
 
     get() {
         let countryID = Number(this.props.location.countryForRating);
-        const PATH = `http://localhost:3000/`;
+        const PATH = `https://evr.herokuapp.com/`;
         axios.get(PATH + "countries/" + countryID).then(res => { this.setState({ country: res.data }); });
         axios.get(PATH + "ratings/" + localStorage.getItem('idUsers')).then(res => {
             let existingRating = res.data.find(r => r.country_id === countryID);
@@ -61,7 +61,7 @@ class Rating extends Component {
     };
 
     updateRating(toUpdate) {
-        const PATH = `http://localhost:3000/ratings/`;
+        const PATH = `https://evr.herokuapp.com/ratings/`;
         let country = this.state.countryForRating;
         let user = this.state.idUser;
         let overall = this.state.Overall;
