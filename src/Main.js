@@ -32,17 +32,17 @@ class Main extends Component {
 
 
     handleClick(e) {
-        e.preventDefault();     
-        console.log(e.target.id);
+        e.preventDefault();      
         window.location = "/Rating/" + e.target.id;
 
-    }  
+    }
 
     render() {
         return (
-            <div>          
-                <div className="app-name">
-                    Eurovision Rater <span className="user-name">{this.state.name}</span>
+            <div>
+                <div className="main-title">
+                    <span className="app-name">Eurovision Rater </span>
+                    <span className="user-name"> {this.state.name} </span>
                 </div>
 
                 <table className="countries-table">
@@ -68,7 +68,7 @@ class Main extends Component {
                         )}
                     </tbody>
                 </table>
-            </div >
+            </div>
         );
     }
 

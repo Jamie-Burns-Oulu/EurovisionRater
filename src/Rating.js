@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Redirect, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './CSS/Rating.css';
 
 class Rating extends Component {
@@ -9,8 +9,7 @@ class Rating extends Component {
         this.get = this.get.bind(this);
         this.state = {
             idUser: "",
-            countryForRating: this.props.match.params.id,
-            redirect: false,
+            countryForRating: this.props.match.params.id,         
             Overall: 0,
             Song: 0,
             Performance: 0,
@@ -81,25 +80,16 @@ class Rating extends Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.setState({ redirect: true })
+        window.location = "/Main/" 
     }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to='/Main' />
-        }
-    }
-
-
-
+   
     render() {
         return (
-            <div>
-                {this.renderRedirect()}
+            <div>             
                 {this.state.country.map(country => (
-                    <div className="country-name">
+                    <div className="country-rating-title">
                         <img src={country.flag} alt={"Flag of " + country.name} className="flag_image" />
-                        {country.idCountries}. {country.name}
+                        {country.idCountries}. <span className="country-name">{country.name} </span>
                     </div>
                 ))}
 

@@ -27,7 +27,6 @@ class Landing extends Component {
     get() {
         const PATH = `https://evr.herokuapp.com/users`;
         axios.get(PATH).then(res => { this.setState({ users: res.data }); });
-        console.log(this.state.users)
     }
 
     onChange(e) {
@@ -71,18 +70,22 @@ class Landing extends Component {
 
     render() {
         return (
-            <div >
+            <div className="grid-container">
+                {this.renderRedirect()}
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
                 <div className="welcome">
                     Welcome to Eurovision Rater
                 </div>
-                <div className="centered">
-                    {this.renderRedirect()}
-                    <input className="name-input" placeholder="Name" onChange={e => { this.onChange(e) }}>
-                    </input>
-                </div >
-                <div className="centered-btn">
+                <div></div>
+                <div></div>
+                <div>
+                    <input className="name-input" placeholder="Name" onChange={e => { this.onChange(e) }} />
                     <button className="start-btn" onClick={this.handleClick}>Start</button>
-                </div>
+                </div >
+                <div></div>
             </div>
         );
     }

@@ -2,30 +2,29 @@ html {
   scroll-behavior: smooth;
 }
 
-.country-name {
+.country-rating-title {
   font-size: 2em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bolder;
-  padding: 1em;
-  position: absolute;
-  top: 5%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
   background-color: #004494;
   width: 100%;
   color: white;
+  height: 3em;
+}
+
+.country-name{
+  line-height: 200%;
 }
 
 .flag_image {
   width: 65px;
   height: 40px;
   border: 1px solid black;
-  margin-right: 1em;
+  margin: 1em 1em 0 1em;
 }
 
 .main-ratings {
-  margin-top: 8em;
+  margin-top: 2em;
   padding: 1em;
 }
 
@@ -48,10 +47,9 @@ html {
   padding: 1em;
 }
 
-#back-btn{
+#back-btn {
   margin-top: 3em;
 }
-
 
 /* Show */
 form .stars {
@@ -66,41 +64,63 @@ form .stars input[type="radio"] {
   filter: alpha(opacity=0);
 }
 
-form .stars input[type="radio"].star-5:checked ~ span { width: 100%; }
+form .stars input[type="radio"].star-5:checked ~ span {
+  width: 100%;
+}
 
-form .stars input[type="radio"].star-4:checked ~ span { width: 80%; }
+form .stars input[type="radio"].star-4:checked ~ span {
+  width: 80%;
+}
 
-form .stars input[type="radio"].star-3:checked ~ span { width: 60%; }
+form .stars input[type="radio"].star-3:checked ~ span {
+  width: 60%;
+}
 
-form .stars input[type="radio"].star-2:checked ~ span { width: 40%; }
+form .stars input[type="radio"].star-2:checked ~ span {
+  width: 40%;
+}
 
-form .stars input[type="radio"].star-1:checked ~ span { width: 20%; }
+form .stars input[type="radio"].star-1:checked ~ span {
+  width: 20%;
+}
 
 form .stars label {
   display: block;
   width: 30px;
   height: 30px;
-  margin: 0!important;
-  padding: 0!important;
+  margin: 0 !important;
+  padding: 0 !important;
   text-indent: -999em;
   float: left;
   position: relative;
   z-index: 10;
-  background: transparent!important;
+  background: transparent !important;
   cursor: pointer;
 }
 
-form .stars label:hover ~ span { background-position: 0 -30px; }
+form .stars label:hover ~ span {
+  background-position: 0 -30px;
+}
 
-form .stars label.star-5:hover ~ span { width: 100% !important; }
+form .stars label.star-5:hover ~ span {
+  width: 100% !important;
+}
 
-form .stars label.star-4:hover ~ span { width: 80% !important; }
+form .stars label.star-4:hover ~ span {
+  width: 80% !important;
+}
 
-form .stars label.star-3:hover ~ span { width: 60% !important; }
+form .stars label.star-3:hover ~ span {
+  width: 60% !important;
+}
 
-form .stars label.star-2:hover ~ span { width: 40% !important; }
+form .stars label.star-2:hover ~ span {
+  width: 40% !important;
+}
 
-form .stars label.star-1:hover ~ span { width: 20% !important; }
+form .stars label.star-1:hover ~ span {
+  width: 20% !important;
+}
 
 form .stars span {
   display: block;
@@ -131,41 +151,63 @@ form .stars2 input[type="radio"] {
   filter: alpha(opacity=0);
 }
 
-form .stars2 input[type="radio"].star-52:checked ~ span { width: 100%; }
+form .stars2 input[type="radio"].star-52:checked ~ span {
+  width: 100%;
+}
 
-form .stars2 input[type="radio"].star-42:checked ~ span { width: 80%; }
+form .stars2 input[type="radio"].star-42:checked ~ span {
+  width: 80%;
+}
 
-form .stars2 input[type="radio"].star-32:checked ~ span { width: 60%; }
+form .stars2 input[type="radio"].star-32:checked ~ span {
+  width: 60%;
+}
 
-form .stars2 input[type="radio"].star-22:checked ~ span { width: 40%; }
+form .stars2 input[type="radio"].star-22:checked ~ span {
+  width: 40%;
+}
 
-form .stars2 input[type="radio"].star-12:checked ~ span { width: 20%; }
+form .stars2 input[type="radio"].star-12:checked ~ span {
+  width: 20%;
+}
 
 form .stars2 label {
   display: block;
   width: 30px;
   height: 30px;
-  margin: 0!important;
-  padding: 0!important;
+  margin: 0 !important;
+  padding: 0 !important;
   text-indent: -999em;
   float: left;
   position: relative;
   z-index: 10;
-  background: transparent!important;
+  background: transparent !important;
   cursor: pointer;
 }
 
-form .stars2 label:hover ~ span { background-position: 0 -30px; }
+form .stars2 label:hover ~ span {
+  background-position: 0 -30px;
+}
 
-form .stars2 label.star-52:hover ~ span { width: 100% !important; }
+form .stars2 label.star-52:hover ~ span {
+  width: 100% !important;
+}
 
-form .stars2 label.star-42:hover ~ span { width: 80% !important; }
+form .stars2 label.star-42:hover ~ span {
+  width: 80% !important;
+}
 
-form .stars2 label.star-32:hover ~ span { width: 60% !important; }
+form .stars2 label.star-32:hover ~ span {
+  width: 60% !important;
+}
 
-form .stars2 label.star-22:hover ~ span { width: 40% !important; }
+form .stars2 label.star-22:hover ~ span {
+  width: 40% !important;
+}
 
-form .stars2 label.star-12:hover ~ span { width: 20% !important; }
+form .stars2 label.star-12:hover ~ span {
+  width: 20% !important;
+}
 
 form .stars2 span {
   display: block;
@@ -182,16 +224,15 @@ form .stars2 span {
   transition: width 0.5s;
 }
 
-
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none;
   margin: 18px 0;
   width: 70%;
 }
-input[type=range]:focus {
+input[type="range"]:focus {
   outline: none;
 }
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -201,7 +242,7 @@ input[type=range]::-webkit-slider-runnable-track {
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 30px;
@@ -212,10 +253,10 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -14px;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
+input[type="range"]:focus::-webkit-slider-runnable-track {
   background: #367ebd;
 }
-input[type=range]::-moz-range-track {
+input[type="range"]::-moz-range-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -225,7 +266,7 @@ input[type=range]::-moz-range-track {
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 36px;
@@ -234,7 +275,7 @@ input[type=range]::-moz-range-thumb {
   background: #ffffff;
   cursor: pointer;
 }
-input[type=range]::-ms-track {
+input[type="range"]::-ms-track {
   width: 100%;
   height: 8.4px;
   cursor: pointer;
@@ -244,19 +285,19 @@ input[type=range]::-ms-track {
   border-width: 16px 0;
   color: transparent;
 }
-input[type=range]::-ms-fill-lower {
+input[type="range"]::-ms-fill-lower {
   background: #2a6495;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
-input[type=range]::-ms-fill-upper {
+input[type="range"]::-ms-fill-upper {
   background: #3071a9;
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
-input[type=range]::-ms-thumb {
+input[type="range"]::-ms-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 36px;
@@ -265,9 +306,9 @@ input[type=range]::-ms-thumb {
   background: #ffffff;
   cursor: pointer;
 }
-input[type=range]:focus::-ms-fill-lower {
+input[type="range"]:focus::-ms-fill-lower {
   background: #3071a9;
 }
-input[type=range]:focus::-ms-fill-upper {
+input[type="range"]:focus::-ms-fill-upper {
   background: #367ebd;
 }
