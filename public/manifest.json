@@ -1,6 +1,6 @@
-{
-  "short_name": "React App",
-  "name": "Create React App Sample",
+{  
+  "short_name": "Eurovision Rater",
+  "name": "A simple way to rate the Eurovision final",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,8 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#004494",
   "background_color": "#ffffff"
 }
