@@ -142,7 +142,7 @@ class Rating extends Component {
                     <div className="comment-rating">
                         Comment
                         <div>
-                            <input type="textarea" name="Comment"
+                            <input type="textarea" className="comment-rating-input" name="Comment"
                                 onChange={this.onChange} value={this.state.Comment} />
                         </div>
                     </div>

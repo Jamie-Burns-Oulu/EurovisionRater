@@ -12,7 +12,7 @@ html {
   height: 3em;
 }
 
-.country-name{
+.country-name {
   line-height: 200%;
 }
 
@@ -26,6 +26,7 @@ html {
 .main-ratings {
   margin-top: 2em;
   padding: 1em;
+  font-weight: bolder;
 }
 
 .overall-rating {
@@ -34,21 +35,37 @@ html {
 
 .song-rating {
   text-align: center;
-  padding: 1em;
+  padding: 0.5em;
 }
 
 .show-rating {
   text-align: center;
-  padding: 1em;
+  padding: 0.2em;
 }
 
 .comment-rating {
   text-align: center;
-  padding: 1em;
+  padding: 0.2em;
+}
+
+.comment-rating-input {
+  border-radius: 25px;
+  text-decoration: none;
+  padding-left: 1em;
+  font-size: 1em;
+}
+
+*:focus {
+  outline: none;
 }
 
 #back-btn {
-  margin-top: 3em;
+  width: 70%;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  margin-right: auto; 
+  margin-left: auto;
 }
 
 /* Show */
